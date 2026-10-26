@@ -111,7 +111,6 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
   <p>Shop 25, Cantonment Plaza, opp. State Bank of Pakistan, Sialkot, Punjab</p>
   <p><a href="tel:+92523300133">+92 52-3300133</a> <a href="https://wa.me/923341551111" rel="noopener">WhatsApp +92 334-155-1111</a></p>
   <p>TikTok, Instagram &amp; Facebook: @melteesepakistan</p>
-  <p class="fn">Prices are in PKR as printed on the menu. † marks prices that were hard to read on the source image and need confirming before launch.</p>
 </footer>
 <div id="bar" hidden><span id="bt"></span><button id="vw">Review order</button></div>
 <div id="sheet" hidden><div class="sh" role="dialog" aria-modal="true" aria-labelledby="sht"><h3 id="sht">Your order <button class="rb" id="cl" aria-label="Close order">×</button></h3><div id="lines"></div><div class="tot"><span>Total</span><span id="tt"></span></div><a class="btn" id="wa" rel="noopener">Send order on WhatsApp</a></div></div>
@@ -144,7 +143,7 @@ const M=[
 const $=s=>document.querySelector(s),fm=n=>"Rs "+n.toLocaleString("en-US"),C={};
 const ctl=(k,n,p,l)=>`<div class="ctl" data-k="${k}" data-n="${n}" data-p="${p}"><button class="mn" data-sub hidden aria-label="Remove one ${n}">−</button><button class="pill" data-add aria-label="Add ${n}">${l?`<span>${l}</span>`:""}<span class="pp">${p}</span><span class="ct"></span><span class="pl">+</span></button></div>`;
 const row=(c,i,x)=>{const[n,d,p,f,lb]=i,id=c.id+x,v=Array.isArray(p),L=lb||c.L;
-return `<div class="it"><div class="top"><span class="nm">${n}${f?"<sup>†</sup>":""}</span>${v?"":`<i class="dots"></i>${ctl(id,n,p)}`}</div>${d?`<p class="ds">${d}</p>`:""}${v?`<div class="vs">${p.map((q,k)=>ctl(id+"-"+k,`${n} (${L[k]})`,q,L[k])).join("")}</div>`:""}</div>`};
+return `<div class="it"><div class="top"><span class="nm">${n}</span>${v?"":`<i class="dots"></i>${ctl(id,n,p)}`}</div>${d?`<p class="ds">${d}</p>`:""}${v?`<div class="vs">${p.map((q,k)=>ctl(id+"-"+k,`${n} (${L[k]})`,q,L[k])).join("")}</div>`:""}</div>`};
 $("#cats").innerHTML=M.map(c=>`<section class="cat${c.d?" dark":""}" id="${c.id}"><h2>${c.t}</h2>${c.note?`<p class="note">${c.note}</p>`:""}${c.i.map((i,x)=>row(c,i,x)).join("")}</section>`).join("");
 $("#tabs").innerHTML=[["all","Everything"],...M.map(c=>[c.id,c.t])].map((t,i)=>`<button data-t="${t[0]}" aria-pressed="${!i}">${t[1]}</button>`).join("");
 $("#tabs").onclick=e=>{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.querySelectorAll(".cat").forEach(s=>s.hidden=b.dataset.t!=="all"&&s.id!==b.dataset.t);$("#menu").scrollIntoView()};
