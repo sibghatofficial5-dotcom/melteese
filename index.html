@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MELTEESE – Let the taste melt you!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--k:#0b0b0b;--w:#fff;--g:#6a6a6a;--h:'Anton',Impact,'Arial Narrow',sans-serif;--b:'Inter',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px));background:var(--k)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--k);z-index:30}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{font:500 1rem/1.45 var(--b);background:var(--w);color:var(--k);overflow-x:hidden;padding-bottom:84px}
+button,a{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid #8ab4ff;outline-offset:2px}
+.drip{height:72px;background:var(--dk) repeat-x 0 0/240px 72px}
+/* hero */
+.hero{background:var(--k);color:var(--w);min-height:min(100svh,780px);display:flex;flex-direction:column;padding:0 20px 8px}
+.top0{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:60px}
+.top0 a{font-size:.85rem;text-decoration:none;opacity:.85}
+.ob{min-height:44px;padding:0 18px;border:2px solid var(--w);border-radius:999px;background:none;color:var(--w);font-weight:700;cursor:pointer}
+.ob b{background:var(--w);color:var(--k);border-radius:99px;padding:0 8px;margin-left:6px}
+.hc{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:14px;padding:12px 0 20px;animation:in .8s ease-out both}
+h1{font:400 clamp(3rem,22vw,9rem)/.9 var(--h);letter-spacing:.01em;text-transform:uppercase}
+h1 sup{font-size:.14em;vertical-align:top;position:relative;top:.5em}
+.tag{font:400 clamp(1.1rem,5vw,1.8rem)/1.1 var(--h);letter-spacing:.06em;text-transform:uppercase}
+.bg{width:min(62vw,300px);height:auto;animation:fl 5s ease-in-out infinite}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;width:100%;max-width:520px;margin:0 auto 20px}
+.btn{flex:1 1 200px;min-height:52px;display:flex;align-items:center;justify-content:center;border:2px solid var(--w);border-radius:999px;text-decoration:none;font-weight:700;padding:0 20px}
+.btn.p{background:var(--w);color:var(--k)}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+@keyframes fl{50%{transform:translateY(-8px) rotate(-1.5deg)}}
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--w);border-bottom:2px solid var(--k);display:flex;gap:8px;overflow-x:auto;padding:8px max(20px,calc(50% - 360px));scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;min-height:44px;padding:0 16px;border:2px solid var(--k);border-radius:999px;background:var(--w);font-weight:700;cursor:pointer;white-space:nowrap}
+.tabs button[aria-pressed=true]{background:var(--k);color:var(--w)}
+/* menu */
+.cat{--fg:var(--k);--bg:var(--w);background:var(--bg);color:var(--fg);padding:28px max(20px,calc(50% - 360px)) 20px}
+.cat.dark{--fg:var(--w);--bg:var(--k)}
+.cat h2{display:inline-block;background:var(--fg);color:var(--bg);font:400 1.8rem/1 var(--h);letter-spacing:.03em;text-transform:uppercase;padding:.35em .8em .28em;border-radius:14px 999px 999px 14px;margin-bottom:6px}
+.note{font-size:.85rem;color:var(--g);margin:6px 0 0}
+.dark .note{color:#bbb}
+.it{padding:12px 0;min-height:48px}
+.top{display:flex;align-items:center;gap:8px}
+.nm{font-weight:700;text-transform:uppercase;font-size:.95rem;line-height:1.2;max-width:62%}
+.nm sup{font-size:.7em}
+.dots{flex:1;min-width:10px;border-bottom:2px dotted currentColor;opacity:.35;align-self:flex-end;margin-bottom:14px}
+.ds{font-size:.85rem;opacity:.75;margin-top:2px;max-width:46ch}
+.vs{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ctl{display:flex;align-items:center;gap:6px}
+.pill{min-height:44px;min-width:92px;padding:0 14px;border:2px solid var(--fg);border-radius:999px;background:none;color:var(--fg);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;font-size:.85rem}
+.pp{font:400 1.15rem/1 var(--h);letter-spacing:.02em}
+.pp::before{content:"Rs ";font:700 .7rem var(--b)}
+.pl{font-size:1.2rem;line-height:1}
+.ct{font-weight:700}
+.pill.on{background:var(--fg);color:var(--bg)}
+.mn,.rb{width:44px;height:44px;flex:none;border:2px solid var(--fg,var(--k));border-radius:50%;background:none;font-size:1.3rem;cursor:pointer;color:inherit}
+.pill:active,.btn:active,.mn:active,.rb:active{transform:scale(.96)}
+/* order bar & sheet */
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--k);color:var(--w);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px calc(10px + env(safe-area-inset-bottom,0px));border-top:2px solid var(--w)}
+#bar button{min-height:48px;padding:0 20px;border-radius:999px;border:0;background:var(--w);color:var(--k);font-weight:700;cursor:pointer}
+#bt{font-weight:700}
+#sheet{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center}
+.sh{background:var(--w);width:100%;max-width:560px;max-height:88svh;overflow:auto;border-radius:20px 20px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom,0px))}
+.sh h3{font:400 1.8rem var(--h);text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.ln{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px dotted #999}
+.ln span:first-child{font-weight:700;font-size:.9rem}
+.lq{display:flex;align-items:center;gap:8px}
+.lq b{min-width:1.2em;text-align:center}
+.tot{display:flex;justify-content:space-between;font:400 1.6rem var(--h);padding:14px 0}
+.sh .btn{border-color:var(--k);background:var(--k);color:var(--w);width:100%}
+.em{padding:16px 0;color:var(--g)}
+/* footer */
+footer{background:var(--k);color:var(--w);padding:8px 20px 40px;text-align:center}
+footer h2{font:400 clamp(2.6rem,16vw,6rem)/1 var(--h);text-transform:uppercase}
+footer p{margin:8px auto;max-width:44ch}
+footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
+.fn{font-size:.8rem;opacity:.7}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="top0"><a href="tel:+92523300133">Home delivery +92 52-3300133</a><button class="ob" id="oo" aria-label="Open your order">Order<b id="oc">0</b></button></div>
+  <div class="hc">
+    <h1>Melteese<sup>®</sup></h1>
+    <p class="tag">Let the taste melt you!</p>
+    <svg class="bg" viewBox="0 0 240 190" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M28 82C28 18 212 18 212 82Z"/><path d="M82 44l8 5M120 34l8 3M156 46l8 5"/>
+      <rect x="30" y="108" width="180" height="30" rx="15"/>
+      <path fill="#fff" d="M24 92H216L206 108H178C177 134 160 140 158 126C157 118 153 112 146 108H34Z"/>
+      <path d="M30 152Q50 142 70 152T110 152T150 152T190 152T212 150"/>
+      <path d="M32 162H208V170Q208 186 190 186H50Q32 186 32 170Z"/>
+    </svg>
+  </div>
+  <div class="cta"><a class="btn p" href="#menu">See the menu</a><a class="btn" href="https://wa.me/923341551111?text=Hello%20MELTEESE!" rel="noopener">Message us on WhatsApp</a></div>
+</header>
+<div class="drip" aria-hidden="true"></div>
+<main id="menu">
+  <nav class="tabs" id="tabs" aria-label="Menu categories"></nav>
+  <div id="cats"></div>
+</main>
+<div class="drip" aria-hidden="true"></div>
+<footer>
+  <h2>Melteese</h2>
+  <p>Let the taste melt you!</p>
+  <p>Shop 25, Cantonment Plaza, opp. State Bank of Pakistan, Sialkot, Punjab</p>
+  <p><a href="tel:+92523300133">+92 52-3300133</a> <a href="https://wa.me/923341551111" rel="noopener">WhatsApp +92 334-155-1111</a></p>
+  <p>TikTok, Instagram &amp; Facebook: @melteesepakistan</p>
+  <p class="fn">Prices are in PKR as printed on the menu. † marks prices that were hard to read on the source image and need confirming before launch.</p>
+</footer>
+<div id="bar" hidden><span id="bt"></span><button id="vw">Review order</button></div>
+<div id="sheet" hidden><div class="sh" role="dialog" aria-modal="true" aria-labelledby="sht"><h3 id="sht">Your order <button class="rb" id="cl" aria-label="Close order">×</button></h3><div id="lines"></div><div class="tot"><span>Total</span><span id="tt"></span></div><a class="btn" id="wa" rel="noopener">Send order on WhatsApp</a></div></div>
+<script>
+const tile=f=>`url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 72'><rect width='240' height='18' fill='${f}'/><path d='M28 10V44M96 10V28M150 10V58M208 10V36' stroke='${f}' stroke-width='24' stroke-linecap='round'/></svg>`)}")`;
+document.documentElement.style.setProperty("--dk",tile("#0b0b0b"));
+const S=["Single","Double","Triple"],D=["Single","Double"];
+const M=[
+{id:"deals",t:"Deals",d:1,note:"Regular fries and regular drink as listed on the menu.",i:[
+["Melteese 1","Any chicken burger, 1 reg fries, 1 reg drink",839],
+["Melteese 2","2 any chicken burgers, 1 reg fries, 2 reg drinks",1489],
+["Melteese 3","1 any beef burger (single patty), 1 reg fries, 1 reg drink",949],
+["Melteese 4","2 any beef burgers (single patty), 1 reg fries, 2 reg drinks",1699],
+["Melteese 5","2 any double chicken burgers, 2 reg drinks",1829],
+["Melteese 6","2 any double beef burgers, 2 reg drinks",2139],
+["Melteese 7","2 any chicken wraps, 2 reg drinks (except signature wrap)",1289]]},
+{id:"beef",t:"Beef burgers",L:S,i:[
+["Beefy Melty","",[719,1069,1619],1],["Smoky Beef","",[719,1069,1419],1],["Shroom Melt","",[719,1069,1419],1],["Jalapeno Beef","",[719,1069,1419],1],["Upsize beef patty","",349,1]]},
+{id:"chicken",t:"Chicken burgers",L:D,i:[
+["Chicken Patty Burger","Mayonnaise, ice burg, tomato",319],["Chicken Thunder","",469],["Chicken Zinger","",419],["Melteese Crispy","",599],["Chicken Grill","",[599,899],1],["Upsize chicken patty","",219,1]]},
+{id:"fries",t:"Fries and sides",i:[
+["Plain fries","",219],["Masala fries","",219],["Shroom fries","",349],["Jalapeno fries","",349],["Chipotle fries","",349],["Loaded fries","",719,1],
+["Nuggets","",[369,669],0,["5 pcs","10 pcs"]],["Hot wings","",[369,669],0,["5 pcs","10 pcs"]],["Chicken strips (5 pcs)","With special sauces",549]]},
+{id:"wraps",t:"Wraps and sandwiches",i:[
+["Signature wrap","",849],["Grill chicken wrap","",599],["Crispy chicken wrap","",599],["Malai chicken wrap","",599],["Beefy cheese wrap","",799],["Beefy cheese wrap deal","With fries and reg drink",1020,1],
+["Panini club sandwich","Served with fries",719],["Panini grill chicken sandwich","Served with fries",719],["Panini beef sandwich","Served with fries",849,1]]},
+{id:"extras",t:"Sauces and drinks",note:"Dip sauces are Rs 150 each.",i:[
+["West B.B.Q sauce","",150],["Thousand sauce","",150],["Chipotle sauce","",150],["Mint pickle sauce","",150],["Shroom sauce","",150],["Jalapeno sauce","",150],["Extra cheese slice","",100],["Small water","",89,1],["Regular drink","",119,1]]}
+];
+const $=s=>document.querySelector(s),fm=n=>"Rs "+n.toLocaleString("en-US"),C={};
+const ctl=(k,n,p,l)=>`<div class="ctl" data-k="${k}" data-n="${n}" data-p="${p}"><button class="mn" data-sub hidden aria-label="Remove one ${n}">−</button><button class="pill" data-add aria-label="Add ${n}">${l?`<span>${l}</span>`:""}<span class="pp">${p}</span><span class="ct"></span><span class="pl">+</span></button></div>`;
+const row=(c,i,x)=>{const[n,d,p,f,lb]=i,id=c.id+x,v=Array.isArray(p),L=lb||c.L;
+return `<div class="it"><div class="top"><span class="nm">${n}${f?"<sup>†</sup>":""}</span>${v?"":`<i class="dots"></i>${ctl(id,n,p)}`}</div>${d?`<p class="ds">${d}</p>`:""}${v?`<div class="vs">${p.map((q,k)=>ctl(id+"-"+k,`${n} (${L[k]})`,q,L[k])).join("")}</div>`:""}</div>`};
+$("#cats").innerHTML=M.map(c=>`<section class="cat${c.d?" dark":""}" id="${c.id}"><h2>${c.t}</h2>${c.note?`<p class="note">${c.note}</p>`:""}${c.i.map((i,x)=>row(c,i,x)).join("")}</section>`).join("");
+$("#tabs").innerHTML=[["all","Everything"],...M.map(c=>[c.id,c.t])].map((t,i)=>`<button data-t="${t[0]}" aria-pressed="${!i}">${t[1]}</button>`).join("");
+$("#tabs").onclick=e=>{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b));document.querySelectorAll(".cat").forEach(s=>s.hidden=b.dataset.t!=="all"&&s.id!==b.dataset.t);$("#menu").scrollIntoView()};
+function upd(){let q=0,t=0,h="",m="";for(const k in C){const o=C[k];q+=o.q;t+=o.q*o.p;h+=`<div class="ln" data-k="${k}" data-n="${o.n}" data-p="${o.p}"><span>${o.n}</span><span class="lq"><button class="rb" data-sub aria-label="Remove one ${o.n}">−</button><b>${o.q}</b><button class="rb" data-add aria-label="Add ${o.n}">+</button></span><span>${fm(o.q*o.p)}</span></div>`;m+=`• ${o.q}× ${o.n} — ${fm(o.q*o.p)}\n`}
+document.querySelectorAll(".ctl").forEach(el=>{const n=(C[el.dataset.k]||{}).q||0;el.querySelector(".mn").hidden=!n;const p=el.querySelector(".pill");p.classList.toggle("on",n>0);el.querySelector(".ct").textContent=n?"×"+n:"";el.querySelector(".pl").hidden=n>0});
+$("#bar").hidden=!q;$("#bt").textContent=`${q} item${q>1?"s":""} · ${fm(t)}`;$("#oc").textContent=q;
+$("#lines").innerHTML=h||'<p class="em">Your order is empty. Add items from the menu.</p>';$("#tt").textContent=fm(t);
+$("#wa").href="https://wa.me/923341551111?text="+encodeURIComponent(q?`Hello MELTEESE! I would like to place an order:\n\n${m}\nTotal: ${fm(t)}\n\nName:\nAddress:\nPhone:`:"Hello MELTEESE! I would like to place an order.");
+if(!q&&!$("#sheet").hidden)return}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-add],[data-sub]"),h=b&&b.closest("[data-k]");if(!h)return;const k=h.dataset.k,o=C[k]||(C[k]={n:h.dataset.n,p:+h.dataset.p,q:0});o.q+=b.hasAttribute("data-add")?1:-1;if(o.q<1)delete C[k];upd()});
+const op=()=>{$("#sheet").hidden=false;$("#cl").focus()},cl=()=>$("#sheet").hidden=true;
+$("#oo").onclick=op;$("#vw").onclick=op;$("#cl").onclick=cl;$("#sheet").onclick=e=>{if(e.target.id==="sheet")cl()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")cl()});
+upd();
+</script>
+</body>
+</html>
